@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   return <AgeCalculator />;
 }
@@ -15,22 +17,52 @@ function AgeCalculator() {
 }
 
 function Inputs() {
+  const [day, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+
+  console.log(day, month, year);
+
   return (
     <div className="inputs">
       <div>
         <p className="input-title">Day</p>
-        <input className="input" type="number" placeholder="DD" />
+        <input
+          value={day}
+          onChange={(e) => {
+            setDay(Number(e.target.value));
+          }}
+          className="input"
+          type="number"
+          placeholder="DD"
+        />
         <p className="error-text">This field is required</p>
       </div>
       <div>
         <p className="input-title">Month</p>
-        <input className="input" type="number" placeholder="MM" />
+        <input
+          value={month}
+          onChange={(e) => {
+            setMonth(Number(e.target.value));
+          }}
+          className="input"
+          type="number"
+          placeholder="MM"
+        />
         <p className="error-text">This field is required</p>
       </div>
       <div>
         <p className="input-title">Year</p>
 
-        <input className="input" type="number" placeholder="YYYY" />
+        <input
+          value={year}
+          onChange={(e) => {
+            setYear(Number(e.target.value));
+          }}
+          className="input"
+          type="number"
+          placeholder="YYYY"
+        />
         <p className="error-text">This field is required</p>
       </div>
     </div>
@@ -49,7 +81,7 @@ function Button() {
           height="39"
           viewBox="0 0 46 44"
         >
-          <g fill="none" stroke="#FFF" stroke-width="2">
+          <g fill="none" stroke="#FFF" strokeWidth="2">
             <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
           </g>
         </svg>
