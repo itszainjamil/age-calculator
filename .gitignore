@@ -25,3 +25,5 @@ yarn-error.log*
 /public/fonts
 /design
 README-template.md
+instructions.md
+public/images
