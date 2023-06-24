@@ -22,6 +22,8 @@ function AgeCalculator() {
   const [ageMonths, setAgeMonths] = useState("--");
   const [ageDays, setAgeDays] = useState("--");
 
+  const [animate, setAnimate] = useState(false);
+
   // Trigger handle click by pressing the enter key
   function handleKeyPress(e) {
     if (e.keyCode === 13) {
@@ -67,6 +69,7 @@ function AgeCalculator() {
       setAgeDays("--");
       setAgeYears("--");
       setAgeMonths("--");
+      setAnimate(false);
       return;
     }
 
@@ -95,6 +98,7 @@ function AgeCalculator() {
     setAgeYears(Math.floor(diff / msPerYear));
     setAgeMonths(Math.floor((diff % msPerYear) / msPerMonth));
     setAgeDays(Math.floor((diff % msPerMonth) / msPerDay));
+    setAnimate(true);
   }
 
   return (
@@ -112,7 +116,12 @@ function AgeCalculator() {
         errYear={errYear}
       />
       <Button day={day} month={month} year={year} handleClick={handleClick} />
-      <Output ageYears={ageYears} ageMonths={ageMonths} ageDays={ageDays} />
+      <Output
+        ageYears={ageYears}
+        ageMonths={ageMonths}
+        ageDays={ageDays}
+        animate={animate}
+      />
     </div>
   );
 }
@@ -215,21 +224,27 @@ function Button({ handleClick }) {
   );
 }
 
-function Output({ ageDays, ageMonths, ageYears }) {
+function Output({ ageDays, ageMonths, ageYears, animate }) {
   return (
     // Contains all the three lines of output
     <div className="output-container">
       {/* Each individual output */}
       <p className="output">
-        <span className="output-number">{ageYears} </span>
+        <span className={`output-number ${animate ? "output-animation" : ""}`}>
+          {ageYears}
+        </span>
         years
       </p>
       <p className="output">
-        <span className="output-number">{ageMonths} </span>
+        <span className={`output-number ${animate ? "output-animation" : ""}`}>
+          {ageMonths}
+        </span>
         months
       </p>
       <p className="output">
-        <span className="output-number">{ageDays} </span>
+        <span className={`output-number ${animate ? "output-animation" : ""}`}>
+          {ageDays}
+        </span>
         days
       </p>
     </div>

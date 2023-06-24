@@ -41,7 +41,7 @@ body {
 }
 
 /* ===================================================================================== */
-/* COMPONENT: Inputs and Input */
+/* - COMPONENT: Inputs and Input */
 
 /* Container which contains all the three inputs */
 .inputs {
@@ -112,7 +112,7 @@ input[type="number"] {
 }
 
 /* ===================================================================================== */
-/* COMPONENT: Button */
+/* - COMPONENT: Button */
 
 /* Container which holds the button and the horizontal line */
 .btn-container {
@@ -152,7 +152,7 @@ input[type="number"] {
 }
 
 /* ===================================================================================== */
-/* COMPONENT: Output */
+/* - COMPONENT: Output */
 
 /* Container for all 3 output lines */
 .output-container {
@@ -177,9 +177,31 @@ input[type="number"] {
 
 .output-number {
   color: #864cfe;
+  display: inline-block;
+  margin-right: 3rem;
 }
 
-/* Responsiveness */
+/* Output Animation */
+@keyframes outputAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.output-animation {
+  animation-name: outputAnimate;
+  animation-duration: 0.6s;
+}
+
+/* - RESPONSIVENESS ========================================================================================= */
+
 @media (max-width: 600px) {
   html {
     font-size: 57%;
@@ -235,11 +257,11 @@ input[type="number"] {
 
   .output,
   .output-number {
-    font-size: 6.8rem;
+    font-size: 6.4rem;
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 370px) {
   html {
     font-size: 47%;
   }
@@ -254,6 +276,6 @@ input[type="number"] {
 
   .output,
   .output-number {
-    font-size: 6.8rem;
+    font-size: 6.4rem;
   }
 }
