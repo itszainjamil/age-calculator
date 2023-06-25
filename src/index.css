@@ -261,7 +261,7 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 370px) {
+@media (max-width: 330px) {
   html {
     font-size: 45%;
   }
@@ -291,7 +291,7 @@ input[type="number"] {
 
   .output,
   .output-number {
-    font-size: 5.4rem;
+    font-size: 5.2rem;
     margin-left: 1rem;
   }
 
