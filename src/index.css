@@ -23,7 +23,7 @@ html {
 
 body {
   background-color: #f0f0f0;
-  height: 100vh;
+  height: 100dvh;
   display: grid;
   place-content: center;
   overflow-x: hidden;
