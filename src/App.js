@@ -65,7 +65,13 @@ function AgeCalculator() {
     const isValidDate = Date.parse(inputDate);
 
     // If date is not valid or one of the fields is empty
-    if (isNaN(isValidDate) || day === "" || month === "" || year === "") {
+    if (
+      isNaN(isValidDate) ||
+      day === "" ||
+      month === "" ||
+      year === "" ||
+      year > 2023
+    ) {
       setAgeDays("--");
       setAgeYears("--");
       setAgeMonths("--");
