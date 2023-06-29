@@ -68,6 +68,7 @@ function AgeCalculator() {
     if (
       isNaN(isValidDate) ||
       day === "" ||
+      day > ListOfDays[month - 1] ||
       month === "" ||
       year === "" ||
       year > 2023
