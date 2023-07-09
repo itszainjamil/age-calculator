@@ -55,6 +55,8 @@ function AgeCalculator() {
     if (!year) setErrYear("This is a required field");
     // The year is in the future
     else if (year > 2023) setErrYear("Must be in the past");
+    // The year is very old
+    else if (year < 1000) setErrYear("Must be greater");
     // If no error
     else setErrYear("");
 
@@ -71,7 +73,8 @@ function AgeCalculator() {
       day > ListOfDays[month - 1] ||
       month === "" ||
       year === "" ||
-      year > 2023
+      year > 2023 ||
+      year < 1000
     ) {
       setAgeDays("--");
       setAgeYears("--");
@@ -106,6 +109,9 @@ function AgeCalculator() {
     setAgeMonths(Math.floor((diff % msPerYear) / msPerMonth));
     setAgeDays(Math.floor((diff % msPerMonth) / msPerDay));
     setAnimate(true);
+    setTimeout(function () {
+      setAnimate(false);
+    }, 1000);
   }
 
   return (
